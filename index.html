@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Portfolio — Najwan Nafidz Nuryanto</title>
+<meta name="description" content="Portfolio pribadi Najwan Nafidz Nuryanto, siswa SMKN 6 Kota Tangsel, XI RPL 1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,700;0,800;0,900;1,900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .biodata-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    border-radius: var(--r-md);
+    overflow: hidden;
+    border: 1.5px solid var(--lav-edge);
+  }
+  .biodata-table th,
+  .biodata-table td {
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .biodata-table th {
+    width: 140px;
+    background: var(--lav-fill);
+    color: var(--lav-ink);
+    white-space: nowrap;
+  }
+  .biodata-table td {
+    background: var(--glass-solid);
+    color: var(--ink);
+  }
+  .biodata-table tr:not(:last-child) th,
+  .biodata-table tr:not(:last-child) td {
+    border-bottom: 1px solid var(--glass-line);
+  }
+
+  .about-text {
+    font-size: 15.5px;
+    line-height: 1.72;
+    color: var(--ink-2);
+    margin: 16px 0 0;
+  }
+
+  .media-card {
+    background: var(--glass-solid);
+    border: 1.5px solid var(--lav-edge);
+    border-radius: var(--r-lg);
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: var(--shadow-chip);
+  }
+  .media-card__label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    color: var(--lav-ink);
+  }
+  .media-card__label svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .media-card video,
+  .media-card audio {
+    width: 100%;
+    border-radius: var(--r-md);
+    outline: none;
+  }
+  .media-card video {
+    aspect-ratio: 16 / 9;
+    background: #000;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0;
+  }
+  .skill-pills li {
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    border: 1.5px solid;
+  }
+  .skill-pills li:nth-child(3n+1) { background: var(--blush-fill); color: var(--blush-ink); border-color: var(--blush-edge); }
+  .skill-pills li:nth-child(3n+2) { background: var(--mint-fill); color: var(--mint-ink); border-color: var(--mint); }
+  .skill-pills li:nth-child(3n)   { background: var(--lav-fill);  color: var(--lav-ink);  border-color: var(--lav-edge); }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 22px 0 0;
+    list-style: none;
+    padding: 0;
+  }
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s var(--pop), box-shadow .2s ease;
+    border: 1.5px solid;
+  }
+  .social-link:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: var(--shadow-chip);
+  }
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+  .social-link--ig {
+    background: linear-gradient(135deg, #fdf497 0%, #fd5949 30%, #d6249f 60%, #285AEB 100%);
+    color: #fff;
+    border-color: transparent;
+  }
+  .social-link--li {
+    background: #0A66C2;
+    color: #fff;
+    border-color: transparent;
+  }
+  .social-link--ig:hover { box-shadow: 0 6px 20px -4px rgba(214,36,159,.45); }
+  .social-link--li:hover { box-shadow: 0 6px 20px -4px rgba(10,102,194,.45); }
+
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin: 14px 0 4px;
+  }
+  .footer-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    transition: transform .2s var(--pop), background .2s ease;
+  }
+  .footer-social svg { width: 20px; height: 20px; }
+  .footer-social--ig { background: linear-gradient(135deg, #fdf497, #fd5949, #d6249f, #285AEB); color: #fff; }
+  .footer-social--li { background: #0A66C2; color: #fff; }
+  .footer-social:hover { transform: translateY(-3px) scale(1.1); }
+
+  .dream-box {
+    background: linear-gradient(135deg, var(--blush-fill), var(--lav-fill));
+    border: 1.5px solid var(--blush-edge);
+    border-radius: var(--r-lg);
+    padding: 22px 24px;
+    margin: 20px 0 0;
+  }
+  .dream-box strong {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--blush-ink);
+    margin-bottom: 6px;
+  }
+  .dream-box p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+</style>
+</head>
+<body data-mode="room">
+
+<div id="stage" aria-hidden="true"></div>
+
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <span class="loader__bun" aria-hidden="true"></span>
+  <span id="loaderText">Memuat portfolio…</span>
+</div>
+
+<header class="hud-top">
+  <div class="brand">
+    <span class="brand__mark" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none"><ellipse cx="11" cy="8" rx="3.2" ry="7" fill="#fff" stroke="#1F1B24" stroke-width="1.6"/><ellipse cx="21" cy="8" rx="3.2" ry="7" fill="#fff" stroke="#1F1B24" stroke-width="1.6"/><circle cx="16" cy="20" r="9.5" fill="#fff" stroke="#1F1B24" stroke-width="1.6"/><circle cx="12.5" cy="19" r="1.4" fill="#1F1B24"/><circle cx="19.5" cy="19" r="1.4" fill="#1F1B24"/><ellipse cx="10" cy="22.5" rx="1.8" ry="1.1" fill="#FFD1DC"/><ellipse cx="22" cy="22.5" rx="1.8" ry="1.1" fill="#FFD1DC"/></svg>
+    </span>
+    <span class="brand__txt"><b>Portfolio</b><span>Najwan Nafidz N.</span></span>
+  </div>
+  <div class="hud-actions">
+    <button class="icon-btn" id="soundBtn" type="button" aria-pressed="true" aria-label="Sound">
+      <svg class="ico-on" viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3l5-4v13l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>
+      <svg class="ico-off" viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3l5-4v13l-5-4H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></svg>
+    </button>
+    <button class="icon-btn" id="resetBtn" type="button" aria-label="Reset the room view">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<div id="hotspots">
+  <button class="hotspot is-hidden" type="button" data-open="hero" data-hotspot="hero"><span class="hotspot__key">1</span><span class="hotspot__txt">TV — Tentang Saya</span><span class="hotspot__near" aria-hidden="true"><kbd>Space</kbd><i>Tap Mochi</i> to open</span></button>
+  <button class="hotspot is-hidden" type="button" data-open="gallery" data-hotspot="gallery"><span class="hotspot__key">2</span><span class="hotspot__txt">Frame — Gallery</span><span class="hotspot__near" aria-hidden="true"><kbd>Space</kbd><i>Tap Mochi</i> to open</span></button>
+  <button class="hotspot is-hidden" type="button" data-open="cabinet" data-hotspot="cabinet"><span class="hotspot__key">3</span><span class="hotspot__txt">Cabinet — Media</span><span class="hotspot__near" aria-hidden="true"><kbd>Space</kbd><i>Tap Mochi</i> to open</span></button>
+  <button class="hotspot is-hidden" type="button" data-open="mail" data-hotspot="mail"><span class="hotspot__key">4</span><span class="hotspot__txt">Mailbox — Kontak</span><span class="hotspot__near" aria-hidden="true"><kbd>Space</kbd><i>Tap Mochi</i> to open</span></button>
+</div>
+
+<nav class="dock" aria-label="Navigasi portfolio">
+  <button class="dock__btn" type="button" data-open="hero"><span class="dock__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="4"/><path d="M8 3l4 4 4-4" stroke-linecap="round"/></svg></span>Tentang<kbd>1</kbd></button>
+  <button class="dock__btn" type="button" data-open="gallery"><span class="dock__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke-linecap="round"/></svg></span>Gallery<kbd>2</kbd></button>
+  <button class="dock__btn" type="button" data-open="cabinet"><span class="dock__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M4 9h16M4 15h16" /><circle cx="12" cy="6" r=".6" fill="#1F1B24"/><circle cx="12" cy="12" r=".6" fill="#1F1B24"/><circle cx="12" cy="18" r=".6" fill="#1F1B24"/></svg></span>Media<kbd>3</kbd></button>
+  <button class="dock__btn" type="button" data-open="mail"><span class="dock__ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2" stroke-linejoin="round"><path d="M5 11a5 5 0 0 1 10 0v7H5z"/><path d="M15 6h2a3 3 0 0 1 3 3v9h-5M10 18v3"/><path d="M17 11V4h3" stroke-linecap="round"/></svg></span>Kontak<kbd>4</kbd></button>
+</nav>
+
+<p class="hint" id="hint"><b>Tap the floor</b> to walk Mochi. <b>Space</b> jumps, and a jump beside an object opens it. Drag to look around, arrows or WASD steer.</p>
+
+<button id="backBtn" type="button"><span class="bb-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></span>Kembali <kbd>Esc</kbd></button>
+
+<main>
+  <section class="panel glass" id="panel-hero" aria-labelledby="hero-title" inert>
+    <div data-stagger>
+      <p class="eyebrow">Channel 01 · Tentang Saya</p>
+      <h1 class="hero-title panel__head" id="hero-title" tabindex="-1">Halo, saya <span class="puff">Najwan</span> <em>Nafidz.</em></h1>
+      <p class="hero-lede">Perkenalkan nama saya Najwan Nafidz Nuryanto, siswa SMKN 6 Kota Tangsel yang memiliki minat besar di bidang teknologi. Saya memiliki cita-cita untuk berkarier di bidang teknik industri karena bidang ini memadukan aspek teknis, sistem, dan efisiensi proses yang sejalan dengan minat saya dalam merancang sesuatu secara terstruktur. Saya berharap dapat terus belajar agar suatu hari bisa berkontribusi nyata di bidang tersebut.</p>
+
+      <table class="biodata-table">
+        <tr><th>Nama</th><td>Najwan Nafidz Nuryanto</td></tr>
+        <tr><th>Kelas</th><td>XI RPL 1</td></tr>
+        <tr><th>Umur</th><td>16 Tahun</td></tr>
+        <tr><th>Berat</th><td>45 Kg</td></tr>
+        <tr><th>Tinggi</th><td>155 cm</td></tr>
+        <tr><th>Alamat</th><td>Kelapa Dua</td></tr>
+      </table>
+
+      <ul class="skill-pills">
+        <li>Teknologi</li>
+        <li>Teknik Industri</li>
+        <li>RPL</li>
+        <li>Problem Solving</li>
+        <li>Desain Sistem</li>
+        <li>Web Development</li>
+      </ul>
+
+      <div class="dream-box">
+        <strong>🎯 Cita-cita</strong>
+        <p>Berkarier di bidang <b>Teknik Industri</b> — memadukan aspek teknis, sistem, dan efisiensi proses untuk merancang sesuatu secara terstruktur dan berkontribusi nyata bagi masyarakat.</p>
+      </div>
+
+      <ul class="social-links">
+        <li><a class="social-link social-link--ig" href="https://www.instagram.com/najwan_nafidz123/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          Instagram
+        </a></li>
+        <li><a class="social-link social-link--li" href="https://www.linkedin.com/in/najwan-nafidz-nuryanto/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          LinkedIn
+        </a></li>
+      </ul>
+
+      <div class="hero-cta" style="margin-top:24px">
+        <button class="btn btn--ink" type="button" data-go="gallery">Lihat Gallery
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button class="btn btn--soft" type="button" data-go="mail">Hubungi Saya</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="panel-gallery" aria-labelledby="gal-title" inert>
+    <div class="gal-head glass" style="--ey:var(--lav-ink);--ey-dot:var(--lavender)">
+      <div>
+        <p class="eyebrow">Frame 02 · Gallery</p>
+        <h2 class="panel__head" id="gal-title" tabindex="-1">Foto & Dokumentasi</h2>
+        <p>Beberapa dokumentasi kegiatan dan momen berharga. Geser atau gunakan panah untuk melihat.</p>
+      </div>
+      <div class="gal-ctrl">
+        <button class="icon-btn" type="button" id="galPrev" aria-label="Sebelumnya"><svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <span class="gal-count" id="galCount" aria-live="polite">1 / 4</span>
+        <button class="icon-btn" type="button" id="galNext" aria-label="Berikutnya"><svg viewBox="0 0 24 24" fill="none" stroke="#1F1B24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <ul class="track" id="track">
+      <li class="card" tabindex="0" aria-label="Membersihkan Laptop"><figure>
+        <img src="images/Background Images/Membersihkan Laptop.jpeg" alt="Membersihkan Laptop" width="600" height="750" draggable="false">
+        <span class="card__tag">Hardware</span>
+        <figcaption><b>Membersihkan Laptop</b><span>Perawatan perangkat</span></figcaption></figure></li>
+      <li class="card" tabindex="0" aria-label="Mengganti Ram"><figure>
+        <img src="images/Background Images/Mengganti Ram.jpeg" alt="Mengganti RAM" width="600" height="750" draggable="false">
+        <span class="card__tag" style="background:var(--lavender)">Upgrade</span>
+        <figcaption><b>Mengganti RAM</b><span>Peningkatan performa</span></figcaption></figure></li>
+      <li class="card" tabindex="0" aria-label="Mengganti Thermal paste"><figure>
+        <img src="images/Background Images/Mengganti Thermal paste.jpeg" alt="Mengganti Thermal Paste" width="600" height="750" draggable="false">
+        <span class="card__tag" style="background:var(--blush)">Maintenance</span>
+        <figcaption><b>Ganti Thermal Paste</b><span>Optimasi suhu & pendinginan</span></figcaption></figure></li>
+      <li class="card" tabindex="0" aria-label="Merakit mini fan"><figure>
+        <img src="images/Background Images/Merakit mini fan.jpeg" alt="Merakit Mini Fan" width="600" height="750" draggable="false">
+        <span class="card__tag">Elektronika</span>
+        <figcaption><b>Merakit Mini Fan</b><span>Projek rakitan kipas</span></figcaption></figure></li>
+    </ul>
+  </section>
+
+  <section class="panel glass" id="panel-cabinet" aria-labelledby="cab-title" inert>
+    <div data-stagger>
+      <p class="eyebrow">Cabinet 03 · Media</p>
+      <h2 class="panel__head" id="cab-title" tabindex="-1">Video & Musik</h2>
+      <p>Tonton video dan dengarkan musik langsung di sini. Tekan play untuk memulai!</p>
+
+      <div class="media-card" id="defaultVideoCard">
+        <div class="media-card__label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Oggy and the Cockroaches
+        </div>
+        <video id="portfolioVideo" controls playsinline preload="metadata">
+          <source src="media/Oggy and the Cockroaches - BITTER CHOCOLATE (S01E01) Full Episode in HD.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="media-card" id="defaultAudioCard">
+        <div class="media-card__label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          Radiohead — Lift
+        </div>
+        <audio id="portfolioAudio" controls preload="metadata" style="width:100%">
+          <source src="media/Radiohead - Lift.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </section>
+
+  <footer class="panel glass" id="panel-mail" aria-labelledby="mail-title" inert>
+    <div data-stagger>
+      <p class="eyebrow">Mailbox 04 · Hubungi saya</p>
+      <h2 class="panel__head" id="mail-title" tabindex="-1">Kirim pesan untuk saya</h2>
+      <p>Mau bertanya, kolaborasi, atau sekadar menyapa? Silakan kirim pesan!</p>
+      <div class="form-wrap" id="formWrap">
+        <form class="form" id="mailForm" novalidate action="#">
+          <div class="field">
+            <label for="f-name">Nama kamu</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+            <span class="err" id="e-name" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email">
+            <span class="err" id="e-email" aria-live="polite"></span>
+          </div>
+          <fieldset class="field">
+            <legend>Pesan ini tentang</legend>
+            <div class="moods">
+              <label class="mood"><input type="radio" name="topic" value="room" checked><span>Pertanyaan</span></label>
+              <label class="mood"><input type="radio" name="topic" value="collab"><span>Kolaborasi</span></label>
+              <label class="mood"><input type="radio" name="topic" value="hello"><span>Salam</span></label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-msg">Pesan</label>
+            <textarea id="f-msg" name="message" required aria-describedby="e-msg"></textarea>
+            <span class="err" id="e-msg" aria-live="polite"></span>
+          </div>
+          <div class="form-row">
+            <button class="btn btn--ink" type="submit">Kirim Pesan
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l16-8-6 16-3-7z"/></svg></button>
+            <span class="form-note">Akan dibalas secepatnya.</span>
+          </div>
+        </form>
+        <div class="sent" id="sent" role="status">
+          <div class="sent__heart" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#1F1B24"><path d="M12 21s-7.5-4.6-9.3-9.2C1.4 8.4 3.6 5 7 5c2 0 3.5 1.1 5 3 1.5-1.9 3-3 5-3 3.4 0 5.6 3.4 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg></div>
+          <h3>Pesan terkirim!</h3>
+          <p>Terima kasih sudah menghubungi. Pesan kamu akan segera dibalas.</p>
+          <div class="form-row" style="margin-top:16px"><button class="btn btn--soft" type="button" id="againBtn">Kirim pesan lagi</button></div>
+        </div>
+      </div>
+      <div class="mail-foot">
+        <div class="footer-socials">
+          <a class="footer-social footer-social--ig" href="https://www.instagram.com/najwan_nafidz123/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+          </a>
+          <a class="footer-social footer-social--li" href="https://www.linkedin.com/in/najwan-nafidz-nuryanto/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+        </div>
+        <span>© 2026 Najwan Nafidz Nuryanto — SMKN 6 Kota Tangsel</span>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="panel glass" id="panel-secret" aria-labelledby="secret-title" inert>
+    <div data-stagger>
+      <p class="eyebrow">Secret sprout</p>
+      <h2 class="panel__head" id="secret-title" tabindex="-1">Mochi's hidden sprout</h2>
+      <p>Setiap portfolio punya satu kejutan kecil. Yang ini adalah tunas yang hanya terbangun saat seseorang melompat di sebelahnya.</p>
+      <div class="sprout-grow">
+        <ul class="sprout-meter" aria-hidden="true">
+          <li></li><li></li><li></li><span id="sproutCount">0 of 3 drops</span>
+        </ul>
+        <div class="form-row">
+          <button class="btn btn--ink" type="button" id="waterBtn">Siram tunas
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/></svg></button>
+          <span class="form-note" id="sproutNote" aria-live="polite">Butuh tiga tetes.</span>
+        </div>
+      </div>
+      <div class="sprout-done" role="status">
+        <div class="petal-row" aria-hidden="true">
+          <i style="--c:#FFC3D3;--r:0"></i><i style="--c:#FFE27A;--r:20"></i><i style="--c:#B4E8BD;--r:40"></i><i style="--c:#DEDAFB;--r:60"></i><i style="--c:#9FD8FF;--r:80"></i>
+        </div>
+        <h3 style="font-weight:900;font-size:24px;letter-spacing:-.02em;margin:8px 0 6px">Mekar!</h3>
+        <p>Mochi akan merawatnya mulai sekarang. Ini rahasia kita berdua.</p>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script src="js/vendor/three-diorama.min.js"></script>
+<script src="js/gallery-textures.js"></script>
+<script src="js/app.js"></script>
+<script src="js/diorama.js"></script>
+</body>
+</html>
